@@ -4,11 +4,11 @@ from paddle import Paddle
 from ball import Ball
 from score import Score
 
+
 screen = Screen()
 screen.setup(width=800, height=600)
 screen.bgcolor("black")
 screen.title("Pong Game")
-
 screen.tracer(0)
 
 r_paddle = Paddle(350)
@@ -35,8 +35,9 @@ while game_is_on:
     ball.ball_move()
     ball.check_wall()
 
-    if ball.distance(r_paddle) < 50 and ball.xcor() > 325 or ball.distance(l_paddle) < 50 and ball.xcor() < -325:
+    if ball.distance(r_paddle) < 50 and ball.xcor() > 330 or ball.distance(l_paddle) < 50 and ball.xcor() < -330:
         ball.check_paddle()
+        print(ball.delay_time)
 
     if ball.check_r_miss():
         ball.ball_reset()
